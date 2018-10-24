@@ -1,6 +1,5 @@
 FROM php:7.2-apache
-COPY ./ /var/www/html
-MAINTAINER Andreas Thuen <andreas.thuen@evry.com>
+MAINTAINER Andreas Thuen <andreasthuen@gmail.com>
 RUN apt-get update && apt-get install -y \
         nano \
         libzip-dev \
