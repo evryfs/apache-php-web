@@ -1,5 +1,5 @@
 FROM php:7.2-apache
-label maintainer Andreas Thuen <andreas.thuen@evry.com>
+LABEL maintainer Andreas Thuen <andreas.thuen@evry.com>
 RUN apt-get update && apt-get install -y \
         nano \
         libzip-dev \
