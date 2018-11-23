@@ -1,5 +1,6 @@
 FROM php:7.2-apache
 MAINTAINER Andreas Thuen <andreas.thuen@evry.com>
+COPY php.ini /usr/local/etc/php
 RUN apt-get update && apt-get install -y \
         nano \
         libzip-dev \
