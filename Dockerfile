@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
         libzip-dev \
         zip \
         libcurl4-openssl-dev \
+        libpng-dev \
+  && docker-php-ext-install gd \
+  && docker-php-ext-configure gd \
   && docker-php-ext-configure zip --with-libzip \
   && docker-php-ext-configure curl \
   && docker-php-ext-install zip \
