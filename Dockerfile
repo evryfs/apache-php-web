@@ -2,14 +2,13 @@ FROM php:7.3-apache
 COPY php.ini /usr/local/etc/php
 COPY apache2.conf /etc/apache2
 LABEL maintainer Andreas Thuen <andreas.thuen@evry.com>
-RUN apt-get update && apt-get install -y \
+RUN apt-get update -y && apt-get install -y \
         nano \
         libzip-dev \
         zip \
         libcurl4-openssl-dev \
         libpng-dev \
   && docker-php-ext-install gd \
-  && docker-php-ext-configure gd \
   && docker-php-ext-configure zip --with-libzip \
   && docker-php-ext-configure curl \
   && docker-php-ext-install zip \
