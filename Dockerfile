@@ -1,4 +1,4 @@
-FROM php:7.3.6-apache
+FROM php:7.3.7-apache
 COPY php.ini /usr/local/etc/php
 COPY apache2.conf /etc/apache2
 LABEL maintainer Andreas Thuen <andreas.thuen@evry.com>
