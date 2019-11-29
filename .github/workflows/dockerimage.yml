@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag apache-php-web:$(awk -F ":" 'NR==1{print $2}' ../../Dockerfile)
+      run: docker build . --file Dockerfile --tag apache-php-web:$(awk -F ":" 'NR==1{print $2}' ../Dockerfile)
