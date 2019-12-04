@@ -11,8 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Tag the release
-      run: git tag  $(awk -F ":" 'NR==1{print $2}' Dockerfile) && git push --tags
+    - run: echo ::set-output name=tag_name::$(awk -F ":" 'NR==1{print $2}' Dockerfile)
+      id: tag_name_step
+    - uses: anothrNick/github-tag-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }}
         REPO_OWNER: AThuen
+        CUSTOM_TAG: ${{ steps.tag_name_step.tag_name }} 
     #  docker build . --file Dockerfile --tag apache-php-web:$(awk -F ":" 'NR==1{print $2}' Dockerfile)
