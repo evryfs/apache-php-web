@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v1
     - run: echo ::set-output name=tag_name::$(awk -F ":" 'NR==1{print $2}' Dockerfile)
       id: tag_name_step
     - uses: anothrNick/github-tag-action@master
