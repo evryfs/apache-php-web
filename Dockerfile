@@ -4,6 +4,8 @@ COPY apache2.conf /etc/apache2
 LABEL maintainer Andreas Thuen <andreas.thuen@evry.com>
 RUN apt-get update -y && apt-get install -y \
         nano \
+	zlib-dev \
+	zlib1g-dev \
         libzip-dev \
         zip \
         libcurl4-openssl-dev \
