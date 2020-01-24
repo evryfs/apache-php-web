@@ -9,7 +9,6 @@ RUN apt-get update -y && apt-get install -y \
         libcurl4-openssl-dev \
         libpng-dev \
   && docker-php-ext-install gd \
-  && docker-php-ext-configure zip --with-libzip \
   && docker-php-ext-configure curl \
   && docker-php-ext-install zip \
   && docker-php-ext-install mysqli \
