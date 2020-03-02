@@ -13,6 +13,8 @@ jobs:
     - run: echo ::set-output name=tag_name::$(awk -F ":" 'NR==1{print $2}' Dockerfile)
       id: tag_name_step
     - uses: anothrNick/github-tag-action@master
+      with:
+        tagging: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }}
         REPO_OWNER: AThuen
