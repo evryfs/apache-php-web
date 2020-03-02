@@ -17,4 +17,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }}
         REPO_OWNER: AThuen
         CUSTOM_TAG: ${{ steps.tag_name_step.tag_name }} 
+        GITHUB_TAG: latest 
     #  docker build . --file Dockerfile --tag apache-php-web:$(awk -F ":" 'NR==1{print $2}' Dockerfile)
