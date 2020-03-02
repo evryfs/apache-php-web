@@ -11,7 +11,7 @@ RUN apt-get update -y && apt-get install -y \
         libcurl4-openssl-dev \
         libpng-dev \
 	task-spooler \
-        mysql-client \
+        mariadb-client \
         iputils-ping \
         openssh-client \
         vim \
