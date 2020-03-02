@@ -10,6 +10,15 @@ RUN apt-get update -y && apt-get install -y \
 	curl \
         libcurl4-openssl-dev \
         libpng-dev \
+	task-spooler \
+        mysql-client \
+        iputils-ping \
+        openssh-client \
+        vim \
+        telnet \
+        cron \
+        ntp \
+	dos2unix \
   && docker-php-ext-install gd \
   && docker-php-ext-configure curl \
   && docker-php-ext-install zip \
