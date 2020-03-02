@@ -15,7 +15,7 @@ jobs:
     - uses: anothrNick/github-tag-action@master
       with:
         tagging: true
-        name:  apache-php-web
+        name:  evryfs/apache-php-web
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }} 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }}
