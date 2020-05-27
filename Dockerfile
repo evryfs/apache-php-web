@@ -1,6 +1,7 @@
 FROM php:7.4.3-apache
 COPY php.ini "$PHP_INI_DIR/php.ini"
 COPY apache2.conf /etc/apache2
+COPY openssl.cnf /etc/ssl/openssl.cnf
 LABEL maintainer Andreas Thuen <andreas.thuen@evry.com>
 RUN apt-get update -y && apt-get install -y \
         nano \
