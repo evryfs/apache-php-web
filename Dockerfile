@@ -1,4 +1,4 @@
-FROM php:7.4.9-apache
+FROM php:7.4.10-apache
 COPY php.ini "$PHP_INI_DIR/php.ini"
 COPY apache2.conf /etc/apache2
 COPY openssl.cnf /etc/ssl/openssl.cnf
