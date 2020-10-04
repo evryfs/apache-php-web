@@ -17,4 +17,4 @@ jobs:
     - uses: anothrNick/github-tag-action@1.30.0
       env:
         CUSTOM_TAG: ${{ steps.tagName.outputs.tag_name }}
-    #  docker build . --file Dockerfile --tag apache-php-web:$(awk -F ":" 'NR==1{print $2}' Dockerfile)
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
