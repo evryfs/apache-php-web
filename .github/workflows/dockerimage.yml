@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-    - run: echo ::set-output name=tag_name::$(awk -F ":" 'NR==1{print $2}' Dockerfile)
+    - run: echo ::set-output name=tag_name::$(head -1 Dockerfile | awk '{print $2}' | tr ':' ' '| awk '{print $2}')
       id: tag_name_step
     - uses: anothrNick/github-tag-action@1.30.0
       env:
