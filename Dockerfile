@@ -1,4 +1,4 @@
-FROM php:8.1.12-apache
+FROM php:8.2.2-apache
 COPY php.ini "$PHP_INI_DIR/php.ini"
 COPY apache2.conf /etc/apache2
 COPY openssl.cnf /etc/ssl/openssl.cnf
