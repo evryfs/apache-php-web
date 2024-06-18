@@ -4,6 +4,8 @@ on:
   push:
     branches: 
       - master
+env:
+  REGISTRY: docker-hosted-nexus.finods.com/evryfs/   
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,3 +20,18 @@ jobs:
       env:
         CUSTOM_TAG: ${{ steps.tagName.outputs.tag_name }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  publish-to-repo:
+    name: Publish artifacts to Nexus
+    runs-on: [ self-hosted, linux, finods-global ]
+    needs: build
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.4.0
+
+      - name: Build Docker Image / push to Nexus
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          docker build . -t ${{env.REGISTRY}}:apache-php-web:8.2.20-apache
+          docker login -u ${{ secrets.DTS_JENKINS_IS_USER }} -p ${{ secrets.DTS_JENKINS_IS_PASSWORD }} docker-hosted-nexus.finods.com
+          docker push ${{env.REGISTRY}}:apache-php-web:8.2.20-apache
+  
